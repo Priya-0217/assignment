@@ -1,9 +1,11 @@
 export async function apiFetch(path, options = {}) {
+  const base = import.meta.env.VITE_API_URL || ''
+  const url = base && !path.startsWith('http') ? base + path : path
   const headers =
     options.body instanceof FormData
       ? { ...(options.headers || {}) }
       : { 'Content-Type': 'application/json', ...(options.headers || {}) }
-  const res = await fetch(path, {
+  const res = await fetch(url, {
     credentials: 'include',
     ...options,
     headers
