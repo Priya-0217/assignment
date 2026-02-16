@@ -1,12 +1,15 @@
 const ImageKit = require("@imagekit/nodejs");
-
+const { IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY, IMAGEKIT_URL_ENDPOINT } = process.env;
+if (!IMAGEKIT_PUBLIC_KEY || !IMAGEKIT_PRIVATE_KEY || !IMAGEKIT_URL_ENDPOINT) {
+  throw new Error("ImageKit environment variables are not set");
+}
 const imagekitClient = new ImageKit({
-  publicKey: 'public_SCPBv9de3vTZSYUb+eC7oKN36XY=',
-  privateKey: 'private_JhbmjFe1RTlhrKG31ODKeThg3YY=',
-  urlEndpoint: 'https://ik.imagekit.io/oil1flwaw',
+  publicKey: IMAGEKIT_PUBLIC_KEY,
+  privateKey: IMAGEKIT_PRIVATE_KEY,
+  urlEndpoint: IMAGEKIT_URL_ENDPOINT,
 });
 
-async function uploadFile(fileBuffer) {
+async function uploadFile(fileBuffer, fileName = "music_" + Date.now() + ".mp3") {
   try {
     console.log("Uploading to ImageKit...");
 
@@ -15,7 +18,7 @@ async function uploadFile(fileBuffer) {
 
     const result = await imagekitClient.files.upload({
       file: base64File,
-      fileName: "music_" + Date.now(),
+      fileName,
       folder: "spotify/music",
     });
 
