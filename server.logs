@@ -1,0 +1,12 @@
+[INFO] Server starting...
+[INFO] Environment variables loaded
+[INFO] Server running on port 3000
+[INFO] Connected to MongoDB successfully
+
+[REQUEST] POST /api/auth/register – 201 Created
+[REQUEST] POST /api/auth/login – 200 OK
+[REQUEST] GET /api/songs – 200 OK
+[REQUEST] POST /api/albums – 201 Created
+
+[SECURITY] JWT authentication verified
+[SECURITY] Unauthorized access blocked – 401
