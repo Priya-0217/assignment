@@ -1,128 +1,112 @@
-# 🎧 Spotify Clone – Fullstack Music Streaming Platform
+# Spotify New
 
-A scalable fullstack music streaming backend system with a basic frontend interface, built to demonstrate secure authentication, role-based access control, and media management.
+A full‑stack music application built for local development. It demonstrates modern web engineering practices: clean API design, secure cookie‑based authentication, role‑based access for artists and listeners, audio uploads, album management, and a responsive React UI. The project is intentionally simple to run locally while showcasing production‑oriented patterns (modular architecture, environment‑driven config, CORS, and secure cookies).
 
----
+## Highlights
+- End‑to‑end auth flow with httpOnly cookies
+- Role‑based access: listener vs. artist
+- Track upload (multipart/form‑data) and playback
+- Albums: create, list, update, delete
+- Clean UI with Tailwind, accessible form controls, and helpful status messages
+- Local‑first developer experience with zero deploy requirements
 
-## 🚀 Features
+## Architecture
+- Frontend: React + Vite + Tailwind CSS
+- Backend: Node.js + Express + MongoDB (Mongoose)
+- Storage: multer (memory) with pluggable CDN storage (ImageKit ready)
+- Security: httpOnly cookies; SameSite and Secure flags configurable; CORS based on environment
 
-### 🔐 Authentication & Security
+### Structure
+- `backend/` Express API under `/api`
+- `frontend/` React app (Vite dev server)
+- `package.json` (root) local helper scripts
 
-* User Registration & Login
-* JWT Authentication
-* Password Hashing (bcrypt)
-* Input Validation & Error Handling
+## Getting Started (Local)
+### Prerequisites
+- Node.js 18+ and npm
+- MongoDB connection string
+- Optional: ImageKit keys for CDN uploads
 
-### 👥 Role-Based Access Control
-
-* **User (Listener)**
-
-  * Browse songs
-  * Save music
-  * Stream content
-
-* **Artist**
-
-  * Upload songs
-  * Create albums
-  * Manage their music library
-
----
-
-### 🎵 Music Management (CRUD)
-
-* Upload Songs (with media storage)
-* Create / Update / Delete Albums
-* Manage Artist Content
-* User Save / Library Features
-
----
-
-## 🛠️ Tech Stack
-
-**Backend**
-
-* Node.js
-* Express.js
-* MongoDB
-* JWT Auth
-* ImageKit (media storage)
-
-**Frontend**
-
-* React.js
-* Axios
-* Protected Routes
-
-**Deployment**
-
-* Frontend → Vercel
-* Backend → Render
-
----
-
-## 📂 Project Structure
-
+### Install
 ```
-spotify_clone/
-│
-├── frontend/        # React frontend
-├── backend/         # Express API server
-├── README.md
+cd backend && npm install
+cd ../frontend && npm install
 ```
 
----
-
-## ⚙️ Environment Variables
-
-### Backend (.env)
-
+### Configure Backend
+Create `backend/.env`:
 ```
 PORT=3000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret
-IMAGEKIT_PUBLIC_KEY=xxx
-IMAGEKIT_PRIVATE_KEY=xxx
-IMAGEKIT_URL_ENDPOINT=xxx
-FRONTEND_URL=https://your-frontend.vercel.app
+MONGODB_URI=your-mongodb-uri
+JWT_SECRET=your-jwt-secret
+FRONTEND_URL=http://localhost:5173
+IMAGEKIT_PUBLIC_KEY=your-public-key
+IMAGEKIT_PRIVATE_KEY=your-private-key
+IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_endpoint
 ```
+Notes:
+- For local use, `FRONTEND_URL` should be `http://localhost:5173`.
+- Never commit secrets to version control.
 
-### Frontend (.env)
-
+### Run
+Open two terminals at the project root:
 ```
-VITE_API_URL=https://your-backend.onrender.com
+npm run dev:backend
+npm run dev:frontend
 ```
+- Backend listens on `http://localhost:3000`
+- Frontend dev server on `http://localhost:5173`
+- The frontend proxies `/api` to the backend for seamless local calls
 
----
+## Features in Detail
+### Authentication
+- Register and login with email or username
+- Persistent sessions via secure cookies
+- User profile endpoint (`/api/auth/me`) to fetch the current user
 
-## 🧪 API Documentation
+### Role‑Based Access
+- Listener: browse, library, playlists
+- Artist: upload tracks, manage own content, create and edit albums
 
-Postman collection / Swagger includes:
+### Tracks
+- Upload audio via `multipart/form-data`
+- Edit title and delete (artist‑owned content)
+- Playback in UI with a native HTML audio player
 
-* Auth APIs
-* Artist APIs
-* Song Upload APIs
-* Album CRUD APIs
+### Albums
+- Create albums and attach tracks
+- List, update title and selection, delete
+- Filtered views showing artist ownership
 
----
+## API Overview
+Auth:
+- POST `/api/auth/register` body: `{ username, email, password, role }`
+- POST `/api/auth/login` body: `{ email, password }` or `{ username, password }`
+- GET `/api/auth/me`
+- POST `/api/auth/logout`
 
-## 📹 Project Demo Video
+Music:
+- POST `/api/music/upload` form‑data: `file`(File), `title`(string), `albumId`(optional)
+- GET `/api/music/musics`
+- PUT `/api/music/musics/:musicId` body: e.g. `{ title }`
+- DELETE `/api/music/musics/:musicId`
 
-A full walkthrough of authentication, role access, and CRUD functionality is included in the submission.
+Albums:
+- POST `/api/music/album` body: `{ title, musicIds }`
+- GET `/api/music/albums`
+- PUT `/api/music/albums/:albumId`
+- DELETE `/api/music/albums/:albumId`
 
----
+## Development Notes
+- Environment‑driven config keeps logic clean and portable
+- Middleware encapsulates auth and role checks
+- UI components are stateful but minimal, focusing on clarity and accessibility
+- Network helper centralizes fetch behavior with credentials included
 
-## 📈 Scalability Notes
+## Troubleshooting
+- “Cannot GET /api/auth/register” in a browser means the endpoint expects POST; use the app UI or Postman.
+- “Failed to fetch” locally: ensure backend is on 3000 and frontend on 5173; verify the proxy is active and CORS allows `http://localhost:5173`.
+- Audio playback issues: confirm uploaded files have valid extensions and the returned URL is reachable.
 
-* Modular MVC architecture
-* Ready for microservices split
-* Cloud media storage
-* JWT stateless auth
-* Can integrate Redis caching & load balancing
-
----
-
-## 👩‍💻 Author
-
-Priya
-Backend Developer Intern Assignment Project
+## License
+This project is intended for learning and portfolio use. Choose a license appropriate for your needs (e.g., MIT) if you plan to publish or share.
