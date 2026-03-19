@@ -14,7 +14,7 @@ A high-performance, visually immersive React application featuring advanced anim
 
 - **Framework**: [React 18](https://reactjs.org/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)+Global CSS 
 - **Animation**: [GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/)
 - **UI Components**: [Radix UI](https://www.radix-ui.com/) & [Shadcn UI](https://ui.shadcn.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
