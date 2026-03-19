@@ -1,203 +1,70 @@
 # 🚗 Scroll-Based Hero Animation (GSAP + Next.js)
 
-A premium, scroll-driven hero section inspired by modern product websites. This project demonstrates smooth animations, scroll-based interactions, and high-performance UI using **Next.js, React, Tailwind CSS, and GSAP**.
+A high-performance, visually immersive React application featuring advanced animations and a sleek automotive-inspired design.
 
----
+## 🚀 Features
 
-## 🔗 Live Demo
-
-👉 https://your-deployment-link-here
-
----
-
-## 📌 Features
-
-### 🎯 Hero Section
-
-* Full-screen responsive layout (above the fold)
-* Letter-spaced animated headline:
-  **W E L C O M E  I T Z  F I Z Z**
-* Modern UI with gradient + glassmorphism effects
-
-### ✨ Initial Load Animations
-
-* Staggered letter animation (fade + movement + slight 3D effect)
-* Smooth reveal of statistics cards
-* GSAP timeline for coordinated animation flow
-
-### 🧭 Scroll-Based Animation (Core)
-
-* Hero section pinned during scroll
-* Scroll-controlled animation using **GSAP ScrollTrigger**
-* Main visual (car/element):
-
-  * Moves horizontally across screen
-  * Subtle vertical motion + rotation
-* Animation tied to scroll progress using `scrub`
-
-### 🌌 Advanced Motion Effects
-
-* Parallax background elements (clouds, glow)
-* Depth-based movement (foreground vs background)
-* Smooth interpolation for natural motion
-* Subtle hover interactions on stat cards
-
-### ⚡ Performance Optimized
-
-* Uses `transform` and `opacity` only
-* Avoids layout reflows and heavy calculations
-* `will-change` used for smoother rendering
-
----
+- **Immersive Animations**: Powered by GSAP and ScrollTrigger for smooth, parallax-driven user experiences.
+- **Interactive Car Section**: A custom-engineered velocity experience with real-time speed tracking (km/h) as you scroll.
+- **Modern UI Stack**: Built with React, TypeScript, and Tailwind CSS.
+- **Shadcn UI Components**: Integrated with high-quality, accessible UI components from the Shadcn library.
+- **Custom Interactions**: Includes a custom cursor, scroll progress indicators, and an interactive navigation system.
 
 ## 🛠️ Tech Stack
 
-* **Next.js (App Router)**
-* **React**
-* **Tailwind CSS**
-* **GSAP (ScrollTrigger)**
+- **Framework**: [React 18](https://reactjs.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animation**: [GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/) & [Shadcn UI](https://ui.shadcn.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
----
+## 📦 Getting Started
 
-## 📂 Project Structure
+### Prerequisites
 
-```
-/app
-  /page.js
-/components
-  HeroScrollAnimation.jsx
-/styles
-  globals.css
-```
+- Node.js (Latest LTS recommended)
+- npm or bun
 
----
+### Installation
 
-## 🚀 Getting Started
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Priya-0217/assignment.git
+   cd assignment
+   ```
 
-### 1. Clone the Repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-git clone https://github.com/your-username/scroll-hero-animation.git
-cd scroll-hero-animation
-```
+### Development
 
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-### 3. Install GSAP
-
-```bash
-npm install gsap
-```
-
-### 4. Run Development Server
-
+Run the development server:
 ```bash
 npm run dev
 ```
 
-### 5. Open in Browser
+### Building for Production
 
-```
-http://localhost:3000
-```
-
----
-
-## 🧠 How It Works
-
-### Scroll Animation
-
-* GSAP's **ScrollTrigger** pins the hero section.
-* A timeline is linked to scroll progress using:
-
-  ```js
-  scrub: true
-  ```
-* As the user scrolls, animation progresses smoothly instead of playing automatically.
-
-### Motion System
-
-* All animations use:
-
-  * `transform: translate, scale, rotate`
-  * `opacity`
-* This ensures GPU acceleration and smooth performance.
-
-### Intro Animation
-
-* Headline letters are split into spans
-* GSAP stagger animates each letter
-* Stats cards animate with slight delay
-
----
-
-## 🎛️ Customization
-
-### Adjust Animation Speed
-
-Modify `scrub` value:
-
-```js
-scrub: 1   // smoother
-scrub: 0.5 // faster
+Create an optimized production build:
+```bash
+npm run build
 ```
 
-### Change Scroll Distance
-
-```js
-end: "+=150%"
+Preview the production build locally:
+```bash
+npm run preview
 ```
 
-### Modify Movement
+## 🧪 Testing
 
-```js
-x: 300,
-y: -50,
-rotate: 5
+Run unit tests with Vitest:
+```bash
+npm run test
 ```
 
----
+## 📄 License
 
-## 🌟 Bonus Enhancements (Optional Ideas)
-
-* Add scroll progress bar
-* Add motion blur effect
-* Replace car with SVG or 3D model
-* Add sound effects for interaction
-* Integrate Locomotive Scroll for smoother scrolling
-
----
-
-## 📸 Reference
-
-Inspired by:
-https://paraschaturvedi.github.io/car-scroll-animation
-
----
-
-## 📜 License
-
-This project is for educational purposes.
-
----
-
-## 🙌 Author
-
-Your Name
-GitHub: https://github.com/your-username
-
----
-
-## 💡 Final Notes
-
-This project focuses on:
-
-* Smooth user experience
-* High-quality animations
-* Clean and maintainable code
-
-Perfect for showcasing frontend animation skills in portfolios 🚀
+This project is private and intended for assignment purposes.
