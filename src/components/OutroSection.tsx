@@ -28,19 +28,19 @@ export default function OutroSection() {
   }, []);
 
   return (
-    <section ref={outroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden py-16 px-8">
+    <section ref={outroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden py-24 px-6 md:px-8">
       <div className="absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,.08) 0%, transparent 70%)' }} />
       <div className="text-center max-w-2xl relative z-10">
-        <p data-reveal className="font-mono text-[11px] tracking-[0.4em] uppercase text-gold mb-8"
+        <p data-reveal className="font-mono text-[9px] md:text-[11px] tracking-[0.4em] uppercase text-gold mb-6 md:mb-8"
           style={{ opacity: 0, transform: 'translateY(20px)' }}>
           Est. 2024
         </p>
-        <h2 data-reveal className="font-display text-[clamp(3rem,7vw,6rem)] tracking-[0.15em] leading-none text-foreground"
+        <h2 data-reveal className="font-display text-[clamp(2.2rem,7vw,6rem)] tracking-[0.1em] md:tracking-[0.15em] leading-[1.1] md:leading-none text-foreground"
           style={{ opacity: 0, transform: 'translateY(30px)' }}>
           THE LEGEND<br />CONTINUES
         </h2>
-        <p data-reveal className="text-sm text-foreground/40 leading-loose mt-6 font-light"
+        <p data-reveal className="text-[0.8rem] md:text-sm text-foreground/40 leading-loose mt-5 md:mt-6 font-light"
           style={{ opacity: 0, transform: 'translateY(20px)' }}>
           ItzFizz defines the boundary between art and engineering.<br />
           Every detail obsessed over. Every moment engineered to perfection.
@@ -48,7 +48,7 @@ export default function OutroSection() {
         <a
           data-reveal
           href="#"
-          className="inline-block mt-10 px-10 py-3.5 border border-gold rounded font-mono text-[11px] tracking-[0.3em] uppercase text-gold no-underline hover:bg-gold hover:text-primary-foreground transition-colors duration-300"
+          className="inline-block mt-8 md:mt-10 px-8 md:px-10 py-3 md:py-3.5 border border-gold rounded font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-gold no-underline hover:bg-gold hover:text-primary-foreground transition-colors duration-300"
           style={{ opacity: 0, transform: 'translateY(20px)' }}
         >
           Reserve Yours

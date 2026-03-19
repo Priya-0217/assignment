@@ -90,12 +90,12 @@ export default function HeroSection() {
         style={{ width: 300, height: 300, top: '40%', left: '60%', background: 'radial-gradient(circle, rgba(30,180,220,.1) 0%, transparent 70%)', filter: 'blur(60px)' }} />
 
       {/* Headline */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-4 mt-[-10vh] md:mt-0">
         <div className="overflow-hidden pb-1">
           <h1
             ref={headlineRef}
             aria-label="WELCOME ITZFIZZ"
-            className="font-display text-[clamp(3.5rem,9vw,9rem)] tracking-[0.35em] leading-none text-foreground/90 flex flex-wrap justify-center"
+            className="font-display text-[clamp(2.5rem,10vw,9rem)] tracking-[0.2em] md:tracking-[0.35em] leading-none text-foreground/90 flex flex-wrap justify-center"
           >
             {HEADLINE_CHARS.map((char, i) => (
               <span
@@ -110,7 +110,7 @@ export default function HeroSection() {
         </div>
         <p
           ref={subRef}
-          className="text-[clamp(.65rem,1.3vw,.85rem)] tracking-[0.45em] uppercase text-gold font-light mt-5"
+          className="text-[clamp(.55rem,1.3vw,.85rem)] tracking-[0.3em] md:tracking-[0.45em] uppercase text-gold font-light mt-4 md:mt-5"
           style={{ opacity: 0, transform: 'translateY(20px)', willChange: 'transform, opacity' }}
         >
           Performance Beyond Limits
@@ -118,11 +118,11 @@ export default function HeroSection() {
       </div>
 
       {/* Stats */}
-      <div ref={statsRef} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex gap-4 flex-wrap justify-center px-6">
+      <div ref={statsRef} className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-10 flex gap-3 md:gap-4 flex-wrap justify-center px-4 w-full max-w-4xl">
         {STATS.map((stat, i) => (
           <div
             key={i}
-            className="stat-card group relative min-w-[140px] text-center rounded-xl px-6 py-5 overflow-hidden
+            className="stat-card group relative min-w-[120px] md:min-w-[140px] flex-1 md:flex-none text-center rounded-xl px-4 md:px-6 py-4 md:py-5 overflow-hidden
                        transition-[border-color,transform] duration-300
                        hover:-translate-y-1 hover:scale-[1.02]"
             style={{
@@ -135,10 +135,10 @@ export default function HeroSection() {
           >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
               style={{ background: 'linear-gradient(135deg, rgba(201,168,76,.06), transparent 60%)' }} />
-            <span className="font-display text-[2.5rem] tracking-[0.05em] text-gold leading-none block">
-              {stat.value}<span className="text-[1.4rem]">{stat.suffix}</span>
+            <span className="font-display text-[1.8rem] md:text-[2.5rem] tracking-[0.05em] text-gold leading-none block">
+              {stat.value}<span className="text-[1.1rem] md:text-[1.4rem]">{stat.suffix}</span>
             </span>
-            <span className="text-[11px] tracking-[0.2em] uppercase text-foreground/40 mt-2 block font-light">
+            <span className="text-[9px] md:text-[11px] tracking-[0.15em] md:tracking-[0.2em] uppercase text-foreground/40 mt-1 md:mt-2 block font-light">
               {stat.label}
             </span>
           </div>
@@ -148,10 +148,10 @@ export default function HeroSection() {
       {/* Scroll hint */}
       <div
         ref={scrollHintRef}
-        className="absolute bottom-6 right-14 z-10 flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/40"
+        className="absolute bottom-6 right-6 md:right-14 z-10 flex items-center gap-3 font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-foreground/40"
         style={{ opacity: 0 }}
       >
-        <div className="w-10 h-px bg-foreground/40" style={{ animation: 'lineBreath 2.5s ease-in-out infinite' }} />
+        <div className="hidden md:block w-10 h-px bg-foreground/40" style={{ animation: 'lineBreath 2.5s ease-in-out infinite' }} />
         Scroll
       </div>
     </section>

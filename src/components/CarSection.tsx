@@ -78,24 +78,24 @@ export default function CarSection() {
           style={{ bottom: 'calc(20% - 30px)', background: 'linear-gradient(to top, rgba(201,168,76,.04), transparent)' }} />
 
         {/* Speed */}
-        <div className="absolute top-12 left-6 md:left-12 z-20">
-          <span ref={speedNumRef} className="font-display text-[3.5rem] md:text-[5rem] tracking-[0.05em] text-foreground leading-none block">
+        <div className="absolute top-8 left-6 md:top-12 md:left-12 z-20">
+          <span ref={speedNumRef} className="font-display text-[2.8rem] md:text-[5rem] tracking-[0.05em] text-foreground leading-none block">
             000
           </span>
-          <span className="font-mono text-[11px] tracking-[0.3em] text-gold uppercase">km/h</span>
+          <span className="font-mono text-[9px] md:text-[11px] tracking-[0.3em] text-gold uppercase">km/h</span>
         </div>
 
         {/* Copy */}
-        <div className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 z-20 text-right pointer-events-none">
-          <span ref={csLabelRef} className="font-mono text-[10px] tracking-[0.3em] uppercase text-gold block mb-3"
+        <div className="absolute right-6 md:right-16 top-[30%] md:top-1/2 -translate-y-1/2 z-20 text-right pointer-events-none w-[70%] md:w-auto">
+          <span ref={csLabelRef} className="font-mono text-[8px] md:text-[10px] tracking-[0.3em] uppercase text-gold block mb-2 md:mb-3"
             style={{ opacity: 0 }}>
             Pure Velocity
           </span>
-          <div ref={csTitleRef} className="font-display text-[clamp(2.5rem,5vw,4.5rem)] tracking-[0.1em] leading-none text-foreground"
+          <div ref={csTitleRef} className="font-display text-[clamp(1.8rem,5vw,4.5rem)] tracking-[0.1em] leading-tight md:leading-none text-foreground"
             style={{ opacity: 0 }}>
             BUILT<br />FOR SPEED
           </div>
-          <p ref={csDescRef} className="text-[0.85rem] text-foreground/40 mt-4 font-light leading-relaxed max-w-[280px]"
+          <p ref={csDescRef} className="text-[0.75rem] md:text-[0.85rem] text-foreground/40 mt-3 md:mt-4 font-light leading-relaxed max-w-[200px] md:max-w-[280px] ml-auto"
             style={{ opacity: 0 }}>
             Every curve engineered.<br />
             Every millisecond measured.<br />
@@ -106,17 +106,17 @@ export default function CarSection() {
         {/* Car */}
         <div
           ref={carWrapRef}
-          className="absolute z-10"
+          className="absolute z-10 scale-[0.7] md:scale-100 origin-bottom"
           style={{ bottom: '19%', left: '-20%', willChange: 'transform' }}
         >
           <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full"
             style={{
-              width: 320, height: 40,
+              width: 280, height: 35,
               background: 'radial-gradient(ellipse, rgba(201,168,76,.5) 0%, transparent 70%)',
               filter: 'blur(16px)',
               animation: 'glowPulse 1.8s ease-in-out infinite',
             }} />
-          <div className="absolute"
+          <div className="absolute hidden md:block"
             style={{
               right: -180, top: '30%',
               borderLeft: '0px solid transparent',
@@ -125,7 +125,9 @@ export default function CarSection() {
               filter: 'blur(3px)',
               transform: 'rotate(-15deg) skewX(-10deg)',
             }} />
-          <CarSvg />
+          <div className="scale-[0.85] md:scale-100">
+            <CarSvg />
+          </div>
         </div>
       </div>
     </section>

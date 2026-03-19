@@ -35,12 +35,12 @@ export default function CustomCursor() {
     <>
       <div
         ref={cursorRef}
-        className="fixed z-[9999] w-2.5 h-2.5 rounded-full bg-gold pointer-events-none mix-blend-difference -translate-x-1/2 -translate-y-1/2"
+        className="fixed z-[9999] w-2.5 h-2.5 rounded-full bg-gold pointer-events-none mix-blend-difference -translate-x-1/2 -translate-y-1/2 hidden md:block"
         style={{ willChange: 'transform' }}
       />
       <div
         ref={trailRef}
-        className="fixed z-[9998] w-9 h-9 rounded-full border border-gold/40 pointer-events-none -translate-x-1/2 -translate-y-1/2"
+        className="fixed z-[9998] w-9 h-9 rounded-full border border-gold/40 pointer-events-none -translate-x-1/2 -translate-y-1/2 hidden md:block"
         style={{ willChange: 'transform', transition: 'all .35s cubic-bezier(.25,.1,.25,1)' }}
       />
     </>
