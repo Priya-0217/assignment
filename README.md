@@ -19,6 +19,13 @@ A high-performance, visually immersive React application featuring advanced anim
 - **UI Components**: [Radix UI](https://www.radix-ui.com/) & [Shadcn UI](https://ui.shadcn.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
 
+- <img width="2846" height="1467" alt="Screenshot 2026-03-19 114312" src="https://github.com/user-attachments/assets/86009dd8-b645-4057-ad79-78a8425652d9" />
+
+
+
+<img width="2834" height="1424" alt="image" src="https://github.com/user-attachments/assets/726551b8-22d9-46ef-8aa0-95f4cc2707af" />
+
+
 ## 📦 Getting Started
 
 ### Prerequisites
